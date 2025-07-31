@@ -1,0 +1,10 @@
+.text-5050 {
+  &__title {
+    text-align: center;
+  }
+  @include media-breakpoint-down(sm) {
+    .text-5050_text-left {
+      margin-bottom: rem-calc(20px);
+    }
+  }
+}

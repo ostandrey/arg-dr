@@ -1,0 +1,38 @@
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: #1C1C1C;
+  border-radius: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background: #333333;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: #FFFFFF;
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 767px) {
+    bottom: 20px;
+    right: 20px;
+  }
+}

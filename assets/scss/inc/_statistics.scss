@@ -1,0 +1,136 @@
+.statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 60px;
+  gap: 88px;
+  background-color: #f8f9fa;
+
+  @media (max-width: 991px) {
+    padding: 60px 30px;
+    gap: 60px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__title {
+    width: 100%;
+    line-height: 115%;
+    color: #1C1C1C;
+    margin-bottom: 88px;
+
+    @media (max-width: 991px) {
+      font-size: 32px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    width: 100%;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 24px;
+    gap: 24px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    flex: 1;
+    height: 256px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      height: auto;
+      min-height: 200px;
+    }
+
+    .statistics__row:first-child & {
+      @media (min-width: 768px) {
+        width: calc((100% - 48px) / 3);
+      }
+    }
+
+    .statistics__row:not(:first-child) & {
+      @media (min-width: 768px) {
+        width: calc((100% - 24px) / 2);
+      }
+    }
+
+    &--wide {
+    }
+  }
+
+  &__number {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 116%;
+    text-align: center;
+    color: #1C1C1C;
+    width: 100%;
+
+    @media (max-width: 991px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 36px;
+    }
+  }
+
+  &__description {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: center;
+    color: #404040;
+    width: 100%;
+
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.accent {
+  color: $green-darker;
+}

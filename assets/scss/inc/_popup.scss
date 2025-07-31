@@ -1,0 +1,105 @@
+/* Стили для модального окна */
+.custom-modal {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.custom-modal__header {
+  padding: 24px 24px 0;
+  border-bottom: none;
+}
+
+.custom-modal__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #1C1C1C;
+  margin: 0;
+}
+
+.custom-modal__close {
+  background: none;
+  border: none;
+  padding: 8px;
+  margin: -8px -8px 0 0;
+  color: #666666;
+  transition: all 0.3s ease;
+}
+
+.custom-modal__close:hover {
+  color: #1C1C1C;
+  transform: scale(1.1);
+}
+
+.custom-modal__body {
+  padding: 24px;
+}
+
+/* Стили для мобильного меню */
+.header__mobile {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header__mobile.active {
+  display: block;
+}
+
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header__burger span {
+  width: 100%;
+  height: 2px;
+  background: #1C1C1C;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+.header__burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header__burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 20px;
+  }
+
+  .custom-modal__header {
+    padding: 20px 20px 0;
+  }
+
+  .custom-modal__title {
+    font-size: 20px;
+  }
+
+  .custom-modal__body {
+    padding: 20px;
+  }
+}

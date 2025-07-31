@@ -1,0 +1,19 @@
+.text-img-video {
+  .contain-text {
+    .text-img-video__text {
+      padding-left: calc(100vw / 2 - 792.5px);
+    }
+  }
+  .content__wrapper--reverse {
+    .text-img-video__text {
+      padding-left: 0;
+      padding-right: calc(100vw / 2 - 792.5px);
+    }
+  }
+  &__img-video {
+    width: 100%;
+    iframe {
+      width: 100%;
+    }
+  }
+}

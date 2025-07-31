@@ -1,0 +1,32 @@
+.locations {
+  &__map {
+    iframe {
+      width: 100%;
+    }
+  }
+
+  p {
+
+    a {
+      color: $text-color;
+      transition: color 0.4s;
+      font-weight: 700;
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}
+
+.location-container {
+  max-width: 1425px;
+  padding: 0 90px;
+
+  @media screen and (max-width: 576px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+    width: 100%;
+    padding: 50px 0 50px;
+  }
+}

@@ -1,0 +1,47 @@
+{
+    "key": "group_6675426d163d6",
+    "title": "Post",
+    "fields": [
+        {
+            "key": "field_6675427316fa0",
+            "label": "Content post",
+            "name": "content_post",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_6645e39c61d79"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Standard post type",
+    "show_in_rest": 0,
+    "modified": 1718977998
+}

@@ -1,0 +1,544 @@
+// Utils
+@import 'inc/mixins';
+@import 'inc/bootstrap-custom';
+@import "../../node_modules/bootstrap/scss/mixins/breakpoints";
+// Plugins
+@import 'plugins/font-awesome/fontawesome';
+@import 'plugins/slick.scss';
+//@import 'plugins/jquery.fancybox.v2.scss'; // Uncomment this line and comment line above to use Fancybox v.2
+@import 'plugins/jquery.fancybox.v3.scss';
+// Home slider
+@import 'inc/slider';
+// Animation
+@import 'inc/animation'; 
+// WooCommerce
+//@import 'inc/woo';
+
+/* -----------------------------------------
+   WordPress Core Classes
+----------------------------------------- */
+
+@import 'inc/wp-core';
+
+/* -----------------------------------------
+   General fixes
+----------------------------------------- */
+
+html {
+	height: 100%;
+}
+
+body {
+	position: static !important;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	min-height: 100vh;
+	scroll-behavior: smooth;
+}
+
+main {
+	display: block;
+}
+
+.grid-container {
+	width: 100%;
+}
+
+*:last-child {
+	margin-bottom: 0;
+}
+
+/* ---------------------------------------
+	Typography / Forms / Inputs / Buttons
+--------------------------------------- */
+
+
+@import 'typography';
+
+/* -----------------------------------------
+    Contact Form
+----------------------------------------- */
+
+/*basic Gravity Form styles and fixes, if you dont need/use this -
+comment or delete styles below*/
+
+@import 'inc/gform';
+
+/* ------------------------------------
+    Basic Styles
+------------------------------------- */
+
+/* Preloader */
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.preloader {
+	position: fixed;
+	z-index: 100000000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	visibility: visible;
+	opacity: 1;
+	background-color: #fff;
+	color: #222;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+
+	&__icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&::before {
+			content: '\f1ce';
+			display: block;
+			font-family: $fa;
+			font-size: 40px;
+			font-weight: 900;
+
+			animation: spin 1s ease-in-out infinite;
+		}
+	}
+
+	&--hidden {
+		visibility: hidden;
+		opacity: 0;
+	}
+}
+
+/* Position center */
+
+.position-center {
+	@include position-center();
+}
+
+/* Pagination */
+
+ul.pagination {
+	@include list-unstyled;
+	margin: 15px 0;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0 3px;
+		padding: 0;
+		line-height: 1.5;
+
+		span, a {
+			display: block;
+			padding: 0 7px;
+
+			&.current {
+				display: block;
+				background: $main-color;
+				color: #fff;
+			}
+		}
+	}
+}
+
+/* Search form */
+
+.search {
+	position: relative;
+
+	.posts-list & {
+		margin-bottom: 40px;
+	}
+}
+
+.search__input {
+	padding-right: 90px;
+}
+
+.search__submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	padding: 10px 15px;
+	cursor: pointer;
+	//font-size: 0;
+
+	&::after {
+		//content: "\f002";
+		font-family: $fa;
+		font-size: 20px;
+		font-weight: 900;
+	}
+}
+
+//use @extend %bgcover; to selector if you need background cover;
+
+%bgcover {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
+.bg-cover {
+	@extend %bgcover;
+}
+
+//use @extend %bgcontain; to selector if you need contain image in block;
+
+%bgcontain {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: contain;
+}
+
+.bg-contain {
+	@extend %bgcontain;
+}
+
+.stretched-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.rel-wrap {
+	position: relative;
+}
+
+.rel-content {
+	position: relative;
+	z-index: 2;
+}
+
+.of-cover, .stretched-img {
+	object-position: 50% 50%;
+	object-fit: cover;
+	font-family: 'object-fit: cover;';
+}
+
+.two-columns {
+	@include media-breakpoint-up(md) {
+		columns: 2;
+	}
+}
+
+.three-columns {
+	@include media-breakpoint-up(md) {
+		columns: 3;
+	}
+}
+
+.jarallax {
+	position: relative;
+
+	> .jarallax-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.jarallax-inline {
+	position: relative;
+
+	> .jarallax-img {
+		position: relative;
+		z-index: -100;
+		display: block;
+		min-width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+img {
+	&[data-lazy-src] {
+		transition: opacity 0.3s ease-in-out;
+	}
+	&.pre-lazyload {
+		opacity: 0;
+	}
+
+	&.lazyloaded {
+		opacity: 1;
+	}
+}
+
+/* ------------------------------------
+    Content Styles
+------------------------------------- */
+
+.main-content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+/* Comments block */
+
+#comments {
+	padding-top: 30px;
+}
+
+.comment-list {
+	@include list-unstyled;
+	margin-bottom: 20px;
+}
+
+.comment {
+	position: relative;
+	margin-top: 15px;
+
+	.children {
+		list-style: none;
+	}
+}
+
+.comment-meta {
+	font-size: 14px;
+}
+
+.comment-metadata {
+	margin-top: 5px;
+	color: #666;
+}
+
+.comment-content {
+	margin-top: 15px;
+	padding-left: 15px;
+	border-left: 1px solid #ddd;
+	font-size: 14px;
+}
+
+.reply {
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: right;
+}
+
+.comment-reply-link {
+	display: block;
+	padding: 0.33333rem 0.5rem;
+	border-radius: 0;
+	background: #777;
+	color: #fefefe;
+	font-size: 0.8rem;
+	line-height: 1;
+	white-space: nowrap;
+
+	&:hover, &:focus {
+		background-color: $main-color;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+.comment-form {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.comment-notes,
+.comment-form-comment {
+	flex: 1 0 100%;
+}
+
+.comment-form-comment {
+	order: 1;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+	flex: 1 1 auto;
+	flex-basis: calc(33.3333% - 20px);
+
+	@include media-breakpoint-down(sm) {
+		flex-basis: 100%;
+	}
+}
+
+.comment-form-author,
+.comment-form-email {
+	@include media-breakpoint-up(md) {
+		margin-right: 30px;
+	}
+}
+
+.comment-form-cookies-consent,
+.comment-form .form-submit {
+	order: 2;
+}
+
+.comment-form .form-submit {
+	flex-basis: 100%;
+}
+
+/* 404 page */
+
+.not-found {
+	padding-top: 100px;
+	padding-bottom: 100px;
+
+	.label {
+		color: $text-color;
+		text-decoration: none;
+		cursor: pointer;
+
+		&:hover {
+			color: $green;
+		}
+	}
+}
+
+.space-top {
+	margin-top: rem-calc(141px);
+}
+
+/* ---------------------------------------
+	Repeatable blocks
+--------------------------------------- */
+
+@import 'repeatable-blocks';
+
+/* ---------------------------------------
+	Header
+--------------------------------------- */
+
+@import 'header';
+
+/* ---------------------------------------
+	Sidebar
+--------------------------------------- */
+
+@import 'sidebar';
+
+/* ---------------------------------------
+	Footer
+--------------------------------------- */
+
+@import 'footer';
+
+/*---------------------------------------
+	TMPL: Home page
+---------------------------------------*/
+
+@import 'templates/home';
+
+/* ---------------------------------------
+	Page: Blog
+--------------------------------------- */
+
+@import 'templates/blog';
+
+/* ---------------------------------------
+	TMPL: Default page
+--------------------------------------- */
+
+@import 'templates/default';
+
+/* ---------------------------------------
+	TMPL: Contact page
+--------------------------------------- */
+
+@import 'templates/contact';
+
+/* ---------------------------------------
+	Include Fonts
+--------------------------------------- */
+@import 'inc/fonts';
+
+@import 'plugins/font-awesome/font-faces';
+
+/* ---------------------------------------
+	TMPL: Contact page
+--------------------------------------- */
+
+
+@import 'templates/contact';
+
+@import 'templates/drones';
+
+/* ---------------------------------------
+	TMPL: Contact page
+--------------------------------------- */
+
+@import 'inc/logo-scroller';
+
+@import 'inc/tiles';
+
+@import 'inc/reviews';
+
+@import 'inc/hero';
+
+@import 'inc/contact';
+
+@import 'inc/gallery';
+
+/* ---------------------------------------
+	TMPL: Gallery
+--------------------------------------- */
+
+@import 'inc/section-gallery';
+
+/* ---------------------------------------
+	TMPL: Statistics
+--------------------------------------- */
+
+@import 'inc/statistics';
+
+
+/* ---------------------------------------
+	TMPL: Drone section
+--------------------------------------- */
+
+@import 'inc/drone-section';
+
+/* ---------------------------------------
+	TMPL: Services
+--------------------------------------- */
+
+@import 'inc/services';
+
+/* ---------------------------------------
+	TMPL: Services
+--------------------------------------- */
+
+@import 'inc/about';
+
+@import 'inc/cta';
+
+@import 'inc/form';
+
+@import 'inc/breadcrumbs';
+
+@import 'inc/client-reviews-slider';
+
+@import 'inc/contact-hero';
+
+@import 'inc/contact-faq';
+
+@import 'inc/contact-about';
+
+@import 'inc/blog-item';
+
+@import 'inc/single-drone';
+
+@import 'inc/media-review';
+
+@import 'inc/toast';
+
+@import 'inc/scroll-top';
+
+@import 'templates/full-width';

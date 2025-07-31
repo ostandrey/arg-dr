@@ -1,0 +1,47 @@
+.careers {
+  .careers__work {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $light-black-txt;
+      font-weight: 600;
+      font-family: $font-bebas;
+    }
+    h1 {
+      font-size: rem-calc(50px);
+    }
+    h2 {
+      font-size: rem-calc(45px);
+    }
+    h3 {
+      font-size: rem-calc(40px);
+    }
+    h4 {
+      font-size: rem-calc(35px);
+    }
+    h5 {
+      font-size: rem-calc(30px);
+    }
+    h6 {
+      font-size: rem-calc(25px);
+    }
+    p,
+    div {
+      font-size: rem-calc(18px);
+      color: $light-black-txt;
+      font-family: $font-inter;
+      font-weight: 600;
+    }
+    a {
+      color: $green;
+      transition: color 0.4s;
+      &:hover {
+        color: darken($green, 10);
+      }
+    }
+  }
+}
+

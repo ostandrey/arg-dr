@@ -1,0 +1,152 @@
+.welcome {
+  position: relative;
+  overflow: hidden;
+  padding: rem-calc(80px) 0;
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+
+    &__container {
+      display: flex!important;
+      flex-direction: column-reverse!important;
+    }
+
+    &__media {
+      height: 280px;
+      margin: rem-calc(20px) 0;
+    }
+  }
+
+
+
+  &__container-text {
+    margin-top: rem-calc(40px);
+    position: relative;
+  }
+
+  &__background-image {
+    position: absolute;
+    top: 0;
+    left: -117%;
+    bottom: 0;
+    display: flex;
+    width: 200%;
+    height: max-content;
+
+    &-left {
+      left: 120px;
+      right: 0;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+
+    h2,h1 {
+      margin-bottom: rem-calc(30px);
+      color: $text-color;
+      font-size: rem-calc(60px);
+      font-weight: 500;
+      line-height: 35px;
+    }
+
+    h1 {
+      font-size: rem-calc(78px);
+
+      @media screen and (max-width: 450px) {
+        font-size: rem-calc(50px);
+        line-height: 1.1rem;
+      }
+    }
+
+    &-text {
+      margin-bottom: rem-calc(30px);
+
+      p {
+        font-size: rem-calc(18px);
+        color: $text-color;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+    }
+
+    &-link {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: rem-calc(40px);
+
+      @extend .bebas-neue-regular;
+      font-size: rem-calc(24px);
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 24px;
+      color: $light-black-txt;
+
+      &:after {
+        content: '';
+        position: absolute;
+        transform: rotate(90deg);
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 16px 26px 16px;
+        border-color: transparent transparent $blue transparent;
+      }
+    }
+  }
+
+
+
+  &__image, &__video {
+    
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    img {
+      max-height: 550px;
+      width: 100%;
+      object-fit: cover;
+
+      @media screen and (max-width: 767px) {
+        object-fit: contain;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.background {
+  &--gray {
+    background-color: $gray;
+  }
+
+  &--white {
+    background-color: $white;
+  }
+}
+
+
+.button-transparent-blue {
+  background-color: rgba(#2e3c97, 0.9);
+  padding: rem-calc(10px) rem-calc(15px);
+  font-weight: 500;
+  font-size: 22px;
+  color: $white;
+
+  &:hover {
+    background-color: $green;
+    color: $white;
+  }
+}

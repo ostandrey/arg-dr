@@ -1,0 +1,49 @@
+/* ---------------------------------------
+	TMPL: Default
+--------------------------------------- */
+
+
+/* ---------------------------------------
+	TMPL: Single Portfolio
+--------------------------------------- */
+.single-portfolio {
+  padding-bottom: 30px;
+  &__title {
+    padding-top: rem-calc(150px);
+    margin-bottom: 30px;
+    h2 {
+      font-size: rem-calc(40px);
+      text-align: center;
+    }
+  }
+ &__gallery {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+ }
+  &__item {
+    width: calc(25% - 23px);
+    height: 400px;
+    overflow: hidden;
+    @include media-breakpoint-down(xl) {
+      width: calc(33% - 17px);
+    }
+    @include media-breakpoint-down(md) {
+      width: calc(50% - 15px);
+    }
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

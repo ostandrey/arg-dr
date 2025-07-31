@@ -1,0 +1,166 @@
+# Performance Optimizations for WordPress
+# Enable GZIP compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# Browser Caching with safe settings
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Default expiration: 1 month
+    ExpiresDefault "access plus 1 month"
+    
+    # CSS and JS files: 1 year
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    
+    # Images: 1 year
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    ExpiresByType image/icon "access plus 1 year"
+    
+    # Fonts: 1 year
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/eot "access plus 1 year"
+    
+    # HTML and XML: 1 hour (safer than longer cache)
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType application/xml "access plus 1 hour"
+    ExpiresByType application/json "access plus 1 hour"
+    
+    # PDF and documents: 1 month
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/msword "access plus 1 month"
+    ExpiresByType application/vnd.ms-excel "access plus 1 month"
+</IfModule>
+
+# Security Headers with performance optimizations
+<IfModule mod_headers.c>
+    # Security headers
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Performance headers
+    Header always set Vary "Accept-Encoding"
+    Header always set Accept-Ranges "bytes"
+    
+    # Cache Control for static assets (safer settings)
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+    
+    # Cache Control for HTML (safer settings)
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+    
+    # Cache Control for API responses
+    <FilesMatch "\.(json|xml)$">
+        Header set Cache-Control "public, max-age=900"
+    </FilesMatch>
+</IfModule>
+
+# WordPress Security
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Block access to sensitive files
+    RewriteRule ^wp-config\.php$ - [F,L]
+    RewriteRule ^wp-content/uploads/.*\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$ - [F,L]
+    RewriteRule ^wp-content/plugins/.*\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$ - [F,L]
+    RewriteRule ^wp-content/themes/.*\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$ - [F,L]
+    
+    # Block access to readme files
+    RewriteRule ^readme\.html$ - [F,L]
+    RewriteRule ^readme\.txt$ - [F,L]
+    RewriteRule ^license\.txt$ - [F,L]
+    
+    # Block access to wp-includes
+    RewriteRule ^wp-includes/.*\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$ - [F,L]
+    
+    # Block access to .htaccess
+    RewriteRule ^\.htaccess$ - [F,L]
+    
+    # Block access to backup files
+    RewriteRule \.(bak|backup|old|orig|save|swp|tmp)$ - [F,L]
+</IfModule>
+
+# Disable server signature
+ServerSignature Off
+
+# Disable directory browsing
+Options -Indexes
+
+# WordPress Rewrite Rules
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+</IfModule>
+
+# Prevent access to wp-config.php
+<Files wp-config.php>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent access to .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Optimize for mobile
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect mobile users to mobile-optimized version if exists
+    RewriteCond %{HTTP_USER_AGENT} (iPhone|iPod|Android|BlackBerry|IEMobile) [NC]
+    RewriteCond %{REQUEST_URI} !^/mobile/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /mobile/$1 [L]
+</IfModule>
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# Disable ETags
+FileETag None
+
+# Optimize for performance
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+</IfModule> 

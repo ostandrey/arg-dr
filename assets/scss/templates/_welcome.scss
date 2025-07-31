@@ -1,0 +1,48 @@
+.welcome {
+  position: relative;
+  overflow: hidden;
+  padding-top: rem-calc(85px);
+  &__container-text {
+    margin-top: rem-calc(40px);
+    position: relative;
+  }
+  &__background-image {
+    position: absolute;
+    top: 0;
+    right: -550px;
+    bottom: 0;
+    display: flex;
+    width: 200%;
+    &-left {
+      left: -550px;
+      right: 0;
+    }
+  }
+  &__wrapper {
+   h2 {
+     font-size: rem-calc(60px);
+     line-height: 24px;
+     color: $text-color;
+     font-weight: 700;
+     font-family: "Bebas Neue";
+     text-align: center;
+   }
+    &-text{
+     p {
+       font-size: rem-calc(18px);
+       line-height: 1.4;
+       color: $sub-color;
+       font-weight: 400;
+       font-family: "Inter";
+     }
+    }
+    &-link {
+      font-size: rem-calc(24px);
+      letter-spacing: 1px;
+      line-height: 24px;
+      color: $color-link;
+      font-weight: 700;
+      font-family: "Bebas Neue";
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.full-text {
+  word-wrap: break-word;
+
+  h2 {
+     font-size: rem-calc(58px);
+    margin-top: rem-calc(20px);
+  }
+
+  p {
+    width: 100%;
+    font-weight: 500;
+  }
+
+  a {
+    color: $blue;
+  }
+  
+  .heading-blue {
+    font-size: rem-calc(24px);
+  }
+}

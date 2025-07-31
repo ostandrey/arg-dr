@@ -1,0 +1,86 @@
+// Project variables
+
+// Colors
+$blue: #213091;
+$gray: #e1e6e9;
+$black: #171717;
+$white: #ffffff;
+$red: #e82027;
+$green: #69bd46;
+
+// Text Colors
+$green-txt: #1daa4a;
+$dark-gray-txt: #535353;
+$gray-txt: #757575;
+$light-black-txt: #272626;
+
+$text-color: #333;
+
+//$main-color: $gray;
+//$sub-color: $main-color;
+
+$green-primary: #46C800;
+$green-darker: #2D8000;
+$orange: #FF7B00;
+$gray-5: #404040;
+$gray-6: #2C2C2C;
+$gray-7: #1C1C1C;
+$white: #FFFFFF;
+
+// Grayscale Palette
+$grayscale-white-20: rgba(255, 255, 255, 0.2);
+$grayscale-white-50: rgba(255, 255, 255, 0.05);
+$grayscale-white: #fff;
+$grayscale-bg: #f2f3f4;
+$grayscale-gray-0: rgba(242, 243, 244, 1);
+$grayscale-gray-1: #cfcfcf;
+$grayscale-gray-2: #bfbfbf;
+$grayscale-gray-3: #a1a0a0;
+$grayscale-gray-4: #666;
+$grayscale-gray-5: #404040;
+$grayscale-gray-6: #2c2c2c;
+$grayscale-gray-7: #1c1c1c;
+$grayscale-black: #060606;
+
+// Green Palette
+$green-green-primary: #46c800;
+$green-green-primary-10: rgba(70, 200, 0, 0.1);
+$green-green-primary-20: rgba(70, 200, 0, 0.2);
+$green-green-darker: #2d8000;
+
+// Additional Palette
+$additional-orange: #ff7b00;
+$additional-orange-10: rgba(255, 123, 0, 0.1);
+$additional-orange-darker: #ff6a00;
+
+// Font Families
+$font-family-base: "IBM Plex Sans", sans-serif;
+$font-family-secondary: "Inter", sans-serif;
+$font-family-tertiary: "Unbounded", sans-serif;
+$font-family-quaternary: "Archivo", sans-serif;
+
+$main-color: $green-green-primary;
+$sub-color: $additional-orange;
+$text-color: $grayscale-gray-7;
+$body-bg-color: $grayscale-gray-0;
+$link-color: $green-green-primary;
+$link-hover-color: $green-green-darker;
+
+$font-inter: 'Inter', sans-serif;
+$font-bebas: 'Bebas Neue',sans-serif;
+$font: $font-inter;
+$fa: 'Font Awesome 5 Free';
+$fab: 'Font Awesome 5 Brands';
+
+$font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
+$font-unbounded: "Unbounded", sans-serif;
+$font-archivo: "Archivo", sans-serif;
+
+// Font Awesome Vars
+$fa-font-path: "../fonts";
+$fa-font-display: swap;
+
+// Project mixins
+
+
+// Custom fonts

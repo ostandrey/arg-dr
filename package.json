@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "bootstrap": "~4.3.1",
+    "browser-sync": "^3.0.2",
+    "node-sass": "^9.0.0"
+  },
+  "scripts": {
+    "bs": "browser-sync start --config bs-config.js",
+    "watch": "node-sass --watch assets/scss/custom.scss -o assets/css --source-map true --output-style compressed",
+    "build:bs": "node-sass assets/scss/bootstrap.scss -o assets/css --output-style compressed && postcss --use autoprefixer -r assets/css/bootstrap.css --no-map",
+    "build:css": "node-sass assets/scss -o assets/css --output-style compressed && postcss --use autoprefixer -r assets/css/*.css --no-map",
+    "prefix": "postcss --use autoprefixer -r assets/css/*.css --no-map"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 9",
+    "android >= 4.4",
+    "ios >= 7"
+  ]
+}

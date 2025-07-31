@@ -1,0 +1,13 @@
+.sidebar {
+	@include media-breakpoint-down(sm) {
+		margin-top: 50px;
+	}
+}
+
+.widget {
+	margin-bottom: 20px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

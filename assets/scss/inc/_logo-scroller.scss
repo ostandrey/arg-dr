@@ -1,0 +1,161 @@
+.logos {
+  &--desktop {
+    display: block;
+  }
+  &--mobile {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    &--desktop {
+      display: none;
+    }
+
+    &--mobile {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: rem-calc(30px);
+    }
+  }
+}
+
+.logos-slider {
+  width: 1240px;
+  height: 200px;
+
+  .slick-list {
+    width: 1240px;
+    height: inherit;
+
+    .slick-slide {
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slick-track {
+      height: inherit;
+    }
+  }
+
+  @media screen and (max-width: 1525px){
+    max-width: 800px;
+    width: 100%;
+
+    .slick-list {
+      max-width: 800px;
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1080px){
+    max-width: 600px;
+    width: 100%;
+
+    .slick-list {
+      max-width: 600px;
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 800px){
+    max-width: 250px;
+    width: 100%;
+
+    .slick-list {
+      max-width: 250px;
+      width: 100%;
+    }
+  }
+
+  .slick-prev, .slick-next {
+    padding: 5px 10px;
+    background: $blue;
+    width: auto;
+    height: auto;
+
+    &:hover {
+      background-color: $green;
+    }
+    &:active {
+      background-color: $green;
+    }
+    &:focus {
+      background-color: $green;
+    }
+    &:target {
+      background-color: $green;
+    }
+  }
+
+  .slick-prev {
+    left: -10%;
+  }
+
+  .slick-next {
+    right: -10%;
+  }
+
+  .slick-prev:before {
+    content: "\f053";
+  }
+
+  .slick-next:before {
+    content: "\f054";
+  }
+}
+.reviews {
+  .slick-prev, .slick-next {
+    padding: 5px 10px;
+    background: $blue;
+    width: auto;
+    height: auto;
+
+    &:hover {
+      background-color: $green;
+    }
+    &:active {
+      background-color: $green;
+    }
+    &:focus {
+      background-color: $green;
+    }
+    &:target {
+      background-color: $green;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+    @include media-breakpoint-down(xl) {
+      left: -5%;
+    }
+    @include media-breakpoint-down(md) {
+      top: auto;
+      bottom: -65px;
+      left: 35%;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+    @include media-breakpoint-down(xl) {
+      right: -5%;
+    }
+    @include media-breakpoint-down(md) {
+      top: auto;
+      bottom: -65px;
+      right: 35%;
+    }
+  }
+
+  .slick-prev:before {
+    content: "\f053";
+  }
+
+  .slick-next:before {
+    content: "\f054";
+  }
+}

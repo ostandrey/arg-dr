@@ -1,0 +1,811 @@
+// Drone Hero Section
+.drone-hero {
+  padding: 60px 60px 80px;
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  // Breadcrumbs
+  .breadcrumbs {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 32px;
+
+    &__item {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #2F8400;
+      text-decoration: none;
+
+      &--active {
+        color: #666666;
+      }
+    }
+
+    &__separator {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #666666;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 80px;
+  }
+
+  // Slider Section
+  &__slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    width: 620px;
+    flex-shrink: 0;
+  }
+
+  &__slider {
+    width: 620px;
+    height: 620px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+
+    // Важные стили для Slick
+    .slick-list,
+    .slick-track {
+      height: 100%;
+    }
+
+    .slick-slide {
+      > div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__no-image {
+    width: 620px;
+    height: 620px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    p {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 16px;
+      color: #A1A0A0;
+    }
+  }
+
+  &__slide {
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  &__slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+
+    &--prev {
+      left: 10px;
+    }
+
+    &--next {
+      right: 10px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__slider-nav {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__slider-dot {
+    width: 8px;
+    height: 8px;
+    background: #A1A0A0;
+    border-radius: 1000px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &--active {
+      width: 48px;
+      background: #060606;
+    }
+  }
+
+  // Description Section
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    width: 620px;
+  }
+
+  &__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 115%;
+    color: #1C1C1C;
+    width: 100%;
+    margin: 0;
+  }
+
+  &__tags-wrapper {
+    width: 100%;
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__tag {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255, 123, 0, 0.1);
+    border-radius: 4px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: #FF6A00;
+  }
+
+  &__text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: #060606;
+    width: 100%;
+
+    p {
+      margin: 0 0 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__package {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 8px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 8px;
+  }
+
+  &__package-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: #A1A0A0;
+    width: 100%;
+  }
+
+  &__package-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  &__package-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  &__package-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__package-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    flex-grow: 1;
+  }
+
+  &__package-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 135%;
+    color: #060606;
+    flex-grow: 1;
+  }
+
+  &__package-quantity {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #666666;
+    flex-shrink: 0;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 44px;
+    gap: 8px;
+    width: 100%;
+    height: 56px;
+    background: #46C800;
+    border: 1px solid #46C800;
+    border-radius: 6px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 135%;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #2D8000;
+      border-color: #2D8000;
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 1200px) {
+  .drone-hero {
+    padding: 40px 20px 60px;
+
+    &__content {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    &__slider-wrapper,
+    &__slider,
+    &__no-image,
+    &__description {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .drone-hero {
+    padding: 20px 16px 40px;
+
+    &__slider,
+    &__no-image {
+      height: auto;
+      min-height: 300px;
+      padding: 20px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__text {
+      font-size: 18px;
+    }
+  }
+}
+
+// Drone Description Section
+.drone-description {
+  padding: 120px 60px;
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 115%;
+    color: #1C1C1C;
+    margin-bottom: 48px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+    background: #FFFFFF;
+    border-radius: 24px;
+
+    &--full {
+      width: 100%;
+    }
+
+    &--half {
+      width: calc(50% - 12px);
+    }
+
+    &--third {
+      width: calc(33.333% - 16px);
+    }
+
+    &--empty {
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+  }
+
+  &__card-title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 135%;
+    color: #1C1C1C;
+    width: 100%;
+    margin: 0;
+  }
+
+  &__card-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 135%;
+    color: #404040;
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
+  }
+  &__gallery {
+    width: 100%;
+    margin-top: 48px;
+  }
+
+  &__gallery-inner {
+    display: flex;
+    gap: 24px;
+
+    &--3 {
+      display: flex;
+      flex-wrap: nowrap;
+
+    }
+  }
+
+  &__gallery-item {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &--large {
+      max-width: 872px;
+      width: 100%;
+    }
+
+  }
+
+  &__gallery-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+.drone-description__gallery-small-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .drone-description__gallery-item {
+    flex: 1;
+    height: calc(50% - 12px);
+  }
+}
+
+// Responsive styles
+@media (max-width: 1400px) {
+  .drone-description {
+    padding: 80px 20px;
+
+    &__card {
+      &--third {
+        width: calc(50% - 12px);
+      }
+    }
+
+    &__row {
+      flex-wrap: wrap;
+    }
+
+    &__gallery-inner {
+      &--3 {
+        .drone-description__gallery-item--large {
+          flex: 0 0 65%;
+          width: 65%;
+          height: auto;
+          min-height: 600px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .drone-description {
+    &__gallery-inner {
+      flex-direction: column;
+    }
+
+  }
+}
+
+@media (max-width: 992px) {
+  .drone-description {
+    &__gallery-inner {
+
+      &--3 {
+        flex-direction: column;
+
+        .drone-description__gallery-item--large {
+          flex: 0 0 auto;
+          width: 100%;
+          height: 500px;
+        }
+
+        .drone-description__gallery-small-column {
+          flex-direction: row;
+
+          .drone-description__gallery-item {
+            height: 300px;
+            width: calc(50% - 12px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .drone-description {
+    padding: 60px 16px;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__card {
+      &--full,
+      &--half,
+      &--third {
+        width: 100%;
+      }
+    }
+
+    &__row {
+      flex-direction: column;
+    }
+
+    &__gallery-inner {
+      &--3 {
+        flex-direction: column;
+
+        .drone-description__gallery-item--large {
+          flex: 0 0 auto;
+          width: 100%;
+          height: 500px;
+        }
+
+        .drone-description__gallery-small-column {
+          flex-direction: row;
+
+          .drone-description__gallery-item {
+            height: 300px;
+            width: calc(50% - 12px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.drone-characteristics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 120px 60px;
+  gap: 80px;
+  width: 100%;
+
+  .container {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1320px;
+  }
+
+  &__title {
+    width: 100%;
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 115%;
+    color: #1C1C1C;
+    margin-bottom: 80px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+    gap: 40px;
+    width: 100%;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    width: 100%;
+  }
+
+  &__group-title {
+    width: 424px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    color: #1C1C1C;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  &__rows {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 32px;
+    max-width: 872px;
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    width: 100%;
+
+    &--full {
+      .drone-characteristics__text {
+        width: 100%;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 12px;
+    width: calc(50% - 12px);
+
+    &--full {
+      width: 100%;
+    }
+  }
+
+  &__spec-name {
+    width: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: #404040;
+  }
+
+  &__spec-value {
+    width: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: #666666;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 2px;
+    background: #E3E3E3;
+    border-radius: 100px;
+    margin: 20px 0;
+  }
+}
+
+// Responsive styles
+@media (max-width: 1200px) {
+  .drone-characteristics {
+    padding: 80px 20px;
+
+    &__container {
+      flex-direction: column;
+    }
+
+    &__group-title {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    &__rows {
+      width: 100%;
+    }
+
+
+  }
+}
+
+@media (max-width: 768px) {
+  .drone-characteristics {
+    padding: 60px 16px;
+
+    &__title {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    &__row {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__text {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 564px) {
+  .drone-characteristics {
+    &__title {
+      font-size: 28px;
+    }
+  }
+}

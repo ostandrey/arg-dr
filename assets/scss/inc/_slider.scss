@@ -1,0 +1,141 @@
+/* -----------------------------------------
+   Home page slider
+----------------------------------------- */
+
+.slick-slider:not(.slick-initialized) {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+	.slick-slide:first-child {
+		display: block;
+	}
+}
+
+#home-slider {
+	.slick-slide {
+		width: 100%;
+		height: 940px; /*define the height of slide*/
+		transition: height 0.3s ease;
+
+		@include media-breakpoint-down(md) {
+			//height: 400px;
+		}
+
+		@include media-breakpoint-down(sm) {
+			//height: 300px;
+		}
+	}
+
+	.slick-slide__inner {
+		position: relative;
+		height: 100%;
+
+		@extend %bgcover;
+	}
+
+	.slider-caption {
+		@include position-center;
+
+		&__arrow {
+			position: absolute;
+			right: 50%;
+			transform: translate(50%, -50%) rotate(180deg);
+			bottom: 80px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 22px 35px 22px;
+			border-color: transparent transparent $white transparent;
+
+			&:hover {
+				border-color: transparent transparent $green transparent;
+			}
+		}
+
+		h3 {
+			@extend .bebas-neue-regular;
+			color: $white;
+			font-size: rem-calc(80px);
+			font-weight: 400;
+			letter-spacing: 2.5px;
+			text-align: center;
+
+			@include media-breakpoint-down(md) {
+				font-size: rem-calc(60px);
+				line-height: 5rem;
+			}
+		}
+
+		p {
+			text-align: center;
+			white-space: nowrap;
+			
+			a {
+				padding: rem-calc(15px) rem-calc(20px);
+				background-color: $blue;
+				color: $white;
+				
+
+				@extend .inter-regular;
+				font-size: rem-calc(24px);
+				font-weight: 500;
+				line-height: 0.2em;
+
+				&:hover {
+					background-color: $green;
+				}
+
+				@include media-breakpoint-down(md) {
+					font-size: rem-calc(20px);
+				}
+			}
+		}
+	}
+}
+
+.videoHolder {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+
+	.video {
+		pointer-events: none;
+
+		@include position-center;
+	}
+}
+
+.slick-arrow {
+	/* Slick arrows global styles */
+}
+
+.slick-dots {
+	/* Slick dots global styles */
+	font-size: 0;
+
+	li {
+		&:only-child {
+			display: none;
+		}
+	}
+}
+
+.slick-slide__inner {
+	position: relative;
+}
+
+.slick-slide__inner::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}

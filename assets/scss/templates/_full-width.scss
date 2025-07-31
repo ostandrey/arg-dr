@@ -1,0 +1,245 @@
+
+.full-width-page {
+  padding: 48px 0 80px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+.full-width-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E4E4E4;
+  }
+
+  &__title {
+    font-family: 'Unbounded', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 115%;
+    color: #1C1C1C;
+    margin: 0;
+  }
+
+  &__updated {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #666666;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #2C2C2C;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Unbounded', sans-serif;
+      color: #1C1C1C;
+      margin: 32px 0 16px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h1 { font-size: 32px; line-height: 115%; }
+    h2 { font-size: 24px; line-height: 120%; }
+    h3 { font-size: 20px; line-height: 125%; }
+    h4 { font-size: 18px; line-height: 130%; }
+    h5 { font-size: 16px; line-height: 135%; }
+    h6 { font-size: 14px; line-height: 140%; }
+
+    p {
+      margin: 0 0 16px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul, ol {
+      margin: 16px 0;
+      padding-left: 24px;
+
+      li {
+        margin-bottom: 8px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    a {
+      color: #2F8400;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #1F5A00;
+      }
+    }
+
+    strong, b {
+      font-weight: 600;
+      color: #1C1C1C;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+
+    blockquote {
+      margin: 24px 0;
+      padding: 20px 24px;
+      background: rgba(47, 132, 0, 0.05);
+      border-left: 4px solid #2F8400;
+      border-radius: 8px;
+      font-style: italic;
+    }
+
+    code {
+      background: #F5F5F5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    pre {
+      background: #F5F5F5;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 16px 0;
+
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      border: 1px solid #E4E4E4;
+      border-radius: 8px;
+      overflow: hidden;
+
+      th, td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid #E4E4E4;
+      }
+
+      th {
+        background: #F9F9F9;
+        font-weight: 600;
+        color: #1C1C1C;
+      }
+
+      tr:last-child {
+        th, td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 991px) {
+  .full-width-page {
+    padding: 32px 0 60px;
+
+    .container {
+      padding: 0 30px;
+    }
+  }
+
+  .full-width-content {
+    gap: 24px;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__body {
+      h1 { font-size: 28px; }
+      h2 { font-size: 22px; }
+      h3 { font-size: 18px; }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .full-width-page {
+    padding: 24px 0 48px;
+
+    .container {
+      padding: 0 20px;
+    }
+  }
+
+  .full-width-content {
+    gap: 20px;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__body {
+      font-size: 15px;
+
+      h1 { font-size: 24px; }
+      h2 { font-size: 20px; }
+      h3 { font-size: 18px; }
+
+      table {
+        font-size: 14px;
+
+        th, td {
+          padding: 8px 12px;
+        }
+      }
+    }
+  }
+}

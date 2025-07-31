@@ -1,0 +1,41 @@
+.banner {
+  &--blue {
+    background-color: #4f687d;
+  }
+
+  &--gray {
+    background-color: #25333b;
+  }
+
+  &--none {
+    background-color: unset;
+  }
+
+  &__text {
+    color: $white;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 0;
+    padding: 2rem 0;
+
+    p {
+      font-family: 'Lato', sans-serif;
+      font-size: rem-calc(42px);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.2em;
+      margin: auto;
+
+      @media screen and (max-width: 1000px) {
+        text-align: center;
+      }
+    }
+    a {
+      color: $white;
+      transition: color 0.3s;
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}
+

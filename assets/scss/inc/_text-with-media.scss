@@ -1,0 +1,162 @@
+.content {
+
+  &__background {
+    @extend %bgcover;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    width: 50%;
+    z-index: 2;
+
+    h2, h3, p {
+      position: relative;
+      color: $white;
+      z-index: 10;
+    }
+
+    h2, h3 {
+      @extend .poppins-regular;
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+  &__text-white {
+    color: $white;
+  }
+  &__media {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    .size--fit {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    &__media, &__text {
+      width: 100%;
+    }
+  }
+
+  &__overlay {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    &--gray {
+      background-color: rgba(92, 122, 152, 0.88);
+
+      &:before {
+        background-color: rgba(40, 45, 49, 0.4);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &--blue {
+      background-color: rgba(92, 122, 152, 0.88);
+    }
+
+    &--none {
+      background-color: transparent;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: rem-calc(30px);
+    position: relative;
+    z-index: 3;
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--static {
+      position: unset;
+    }
+
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      align-content: center;
+      padding: 0;
+
+      &--reverse {
+        flex-direction: column;
+      }
+
+      &--static {
+        .content__media {
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .text-bg.right {
+      position: absolute;
+      z-index: 5;
+      background: linear-gradient(to left, #e4e5e0 53%, transparent 60%);
+      color: #4b6478;
+      display: flex;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-bg.left {
+      position: absolute;
+      z-index: 5;
+      background: linear-gradient(to right, #e4e5e0 53%, transparent 60%);
+      color: #4b6478;
+      display: flex;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-wrapper {
+      padding: 3rem 0;
+
+      h2, h3, p {
+        color: #4b6478;
+      }
+    }
+  }
+
+  &__form {
+    position: relative;
+    z-index: 3;
+  }
+}

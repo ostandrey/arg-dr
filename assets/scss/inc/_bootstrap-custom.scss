@@ -1,0 +1,265 @@
+@import 'vars';
+@import '../../../node_modules/bootstrap/scss/functions';
+
+@function rem-calc($values) {
+  $rem-values: $values / 16px * 1rem;
+
+  @return $rem-values;
+}
+
+/* ---------------------------------------
+	Required project style settings
+--------------------------------------- */
+
+// list of available colors for bootstrap.
+// Specify $main-color and $sub-color in ./css/inc/_vars.scss
+$primary: $main-color;
+$secondary: $sub-color;
+
+// Include additional color to style button (eg. btn-violet class)
+$theme-colors: (
+        "violet": $gray,
+);
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+/**
+ * General
+ */
+
+$body-bg: $grayscale-gray-0;
+
+// Grid breakpoints
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1440px,
+        xxxl: 1600px,
+); // Breakpoints where container will change it max-width
+
+// Grid containers
+$container-max-widths: (
+        sm: 540px,
+        md: 740px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1350px,
+); // grid container max width
+
+$grid-gutter-width: 30px; // Grind columns gap (distance between columns)
+
+/**
+ * Typography
+ */
+
+$line-height-base: 1.5; // line-height that will apply to any text that has not specified line height
+$body-color: $text-color; // global text color $text-color comes from _vars.scss
+$font-family-base: $font; // global text font family
+$font-size-base: rem-calc(16px);
+
+$spacer: 1rem; // global margin that will applies to any text (p, ul, ol, blockquote)
+$spacers: (
+        g: $grid-gutter-width / 2
+);
+
+// Headings
+// Headings sizes on Desktop views
+$h1-font-size: 41px;
+$h2-font-size: 35px;
+$h3-font-size: 28px;
+$h4-font-size: 25px;
+$h5-font-size: 21px;
+$h6-font-size: 19px;
+
+$headings-font-family: null; // Headings font family
+$headings-font-weight: 700; // Headings font weight
+$headings-color: inherit; // Headings text color
+$headings-line-height: $line-height-base; // Headings line height
+$headings-margin-bottom: $spacer; // Headings bottom margin
+
+// Links
+$link-color: $primary; // Global link color
+$link-decoration: none; // Global link decoration
+$link-hover-color: darken($link-color, 15%); // Link hover color
+$link-hover-decoration: underline; // Link decoration on hover
+
+// Misc
+$paragraph-margin-bottom: $spacer; // Paragraph bottom margin
+
+$small-font-size: 80%; // Font size for small tag and .small class
+
+$hr-border-color: #ccc; // <hr> color
+$hr-border-width: 1px; // <hr> height
+$hr-margin-y: $spacer; // <hr> vertical spacing
+
+/**
+ * Desktop Menu
+ */
+
+$nav-link-padding-y: rem-calc(8px); // Global Menu item link vertical padding
+$nav-link-padding-x: rem-calc(15px); // Global Menu item link horizontal padding
+
+$dropdown-padding-y: 0; // Menu dropdown (<ul>) vertical spacing
+$dropdown-font-size: $font-size-base; // Menu dropdown font size
+$dropdown-bg: $main-color; // Menu dropdown background color
+
+$dropdown-link-color: #fff; // Menu dropdown link color
+$dropdown-link-hover-color: #fff; // Menu dropdown link color on hover
+$dropdown-link-hover-bg: darken($main-color, 5%); // Menu dropdown link background color on hover
+
+$dropdown-link-active-color: invert($main-color); // Menu dropdown active menu item color
+$dropdown-link-active-bg: $main-color; // Menu dropdown active menu item background color
+
+$dropdown-item-padding-y: 10px; // Dropdown menu item vertical spacing
+$dropdown-item-padding-x: $nav-link-padding-x; // Dropdown menu item horizontal spacing
+
+/**
+ * Buttons
+ */
+// All button sizes should be specified on rem (eg. rem-calc(16px))
+
+// .btn
+$btn-padding-y: rem-calc(10px); // Button vertical padding
+$btn-padding-x: rem-calc(15px); // Button horizontal padding
+$btn-font-family: $font-family-base; // Button font family
+$btn-font-size: $font-size-base; // Button font size
+$btn-line-height: $line-height-base; // Button line height
+$btn-font-weight: 400; // Button font weight
+$btn-transition: all .2s ease-in-out; // Button transition
+
+// .btn-sm
+$btn-padding-y-sm: rem-calc(6px); // Small button vertical padding
+$btn-padding-x-sm: rem-calc(10px); // Small button horizontal padding
+$btn-font-size-sm: rem-calc(14px); // Small button font size
+$btn-line-height-sm: $line-height-base; // Small button line height
+
+// .btn-lg
+$btn-padding-y-lg: rem-calc(12px); // Large button vertical padding
+$btn-padding-x-lg: rem-calc(18px); // Large button horizontal padding
+$btn-font-size-lg: rem-calc(18px); // Large button font size
+$btn-line-height-lg: $line-height-base; // Large button line height
+
+// .btn-outline-primary
+$btn-border-width: 1px; // Outline button border width
+
+/**
+ * Forms
+ */
+
+$label-margin-bottom: 5px; // Input <label> bottom margin
+
+$input-padding-y: rem-calc(10px); // Input vertical padding
+$input-padding-x: rem-calc(16px); // Input horizontal padding
+$input-font-family: $font-family-base; // Input font family
+$input-font-size: $font-size-base; // Input font size
+$input-font-weight: 400; // Input font weight
+$input-line-height: $line-height-base; // Input line height
+$input-bg: #fff; // Input background color
+$input-color: $text-color; // Input text color
+$input-border-color: #ccc; // Input border color
+$input-border-width: 1px; // Input border width
+$input-placeholder-color: $gray-600; // Input placeholder text color
+$input-height: calc(#{$input-line-height * $input-font-size} + #{$input-padding-y * 2} + #{$input-border-width * 2}); // Input fixed height to fix different browser height calculation
+
+/* ---------------------------------------
+	Additional Foundation style settings
+--------------------------------------- */
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret: false;
+$enable-rounded: false;
+$enable-prefers-reduced-motion-media-query: false;
+$enable-validation-icons: false;
+$enable-responsive-font-sizes: true;
+$rfs-breakpoint: 767px;
+$rfs-base-font-size: 1rem;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$component-active-color: #fff;
+$component-active-bg: $primary;
+$border-radius: 0;
+
+$caret-width: .3em;
+$caret-vertical-align: $caret-width * .85;
+$caret-spacing: $caret-width * .85;
+
+// Tables
+$table-cell-padding: 10px;
+$table-color: $body-color;
+$table-bg: null;
+$table-border-width: 1px;
+$table-border-color: #ccc;
+$table-head-bg: $gray-200;
+$table-head-color: $gray-700;
+
+// Navbar
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-nav-link-padding-x: $nav-link-padding-x;
+
+$navbar-toggler-padding-y: 0;
+$navbar-toggler-padding-x: 0;
+
+// Menu dropdowns
+$dropdown-min-width: 200px;
+$dropdown-spacer: 0;
+$dropdown-border-color: transparent;
+$dropdown-border-radius: 0;
+$dropdown-border-width: 0;
+$dropdown-inner-border-radius: calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
+
+// Tabs
+$nav-tabs-border-color: $gray-300;
+$nav-tabs-border-width: 1px;
+$nav-tabs-border-radius: 0;
+$nav-tabs-link-hover-border-color: $gray-200 $gray-200 $nav-tabs-border-color;
+$nav-tabs-link-active-color: $gray-700;
+$nav-tabs-link-active-bg: $body-bg;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color $nav-tabs-border-color $nav-tabs-link-active-bg;
+
+// Alerts
+$alert-padding-y: .75rem;
+$alert-padding-x: 1.25rem;
+$alert-margin-bottom: 1rem;
+$alert-border-radius: $border-radius;
+$alert-link-font-weight: 700;
+$alert-border-width: 1px;
+
+$alert-bg-level: -10;
+$alert-border-level: -9;
+$alert-color-level: 6;
+
+// Spinners
+$spinner-width: 2rem;
+$spinner-height: $spinner-width;
+$spinner-border-width: .25em;
+
+$spinner-width-sm: 1rem;
+$spinner-height-sm: $spinner-width-sm;
+$spinner-border-width-sm: .2em;
+
+// Close
+
+$close-font-size: $font-size-base * 1.5;
+$close-font-weight: 700;
+$close-color: $black;
+$close-text-shadow: none;
