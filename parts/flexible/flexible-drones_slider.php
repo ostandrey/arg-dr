@@ -30,20 +30,28 @@ if ($drones):
             <div class="drones-slider">
                 <?php foreach ($drones as $post): setup_postdata($post);
                     $tags = get_the_terms(get_the_ID(), 'drone_tag');
+                    $categories = get_the_category(get_the_ID());
                     ?>
-                    <a href="<?php the_permalink(); ?>" class="drone-card">
-                        <div class="drone-card__img">
-                            <?php the_post_thumbnail('medium'); ?>
-                        </div>
-                        <div class="drone-card__title"><?php the_title(); ?></div>
-                        <?php if ($tags): ?>
-                            <div class="drone-card__tags">
-                                <?php foreach ($tags as $tag): ?>
-                                    <span class="drone-tag"><?php echo esc_html($tag->name); ?></span>
-                                <?php endforeach; ?>
+                    <div class="drone-slider-item">
+                        <?php if (!empty($categories)): ?>
+                            <div class="drone-category">
+                                <span class="drone-category__label"><?php echo esc_html($categories[0]->name); ?></span>
                             </div>
                         <?php endif; ?>
-                    </a>
+                        <a href="<?php the_permalink(); ?>" class="drone-card">
+                            <div class="drone-card__img">
+                                <?php the_post_thumbnail('medium'); ?>
+                            </div>
+                            <div class="drone-card__title"><?php the_title(); ?></div>
+                            <?php if ($tags): ?>
+                                <div class="drone-card__tags">
+                                    <?php foreach ($tags as $tag): ?>
+                                        <span class="drone-tag"><?php echo esc_html($tag->name); ?></span>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                        </a>
+                    </div>
                 <?php endforeach; wp_reset_postdata(); ?>
             </div>
         </div>

@@ -1,7 +1,7 @@
 $green-primary: #46C800;
 $green-darker: #3BA000;
 $white: #FFFFFF;
-$black: #000000;
+$black: #060606;
 
 $gray-0: #F5F5F5;
 $gray-4: #9CA3AF;
@@ -24,6 +24,15 @@ $gray-7: #374151;
     max-width: 1360px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 40px;
+
+    @media (max-width: 1200px) {
+      padding: 0 32px;
+    }
+
+    @media (max-width: 767px) {
+      padding: 0 20px;
+    }
   }
 
   &__content {
@@ -32,7 +41,7 @@ $gray-7: #374151;
     align-items: flex-start;
     gap: 80px;
     width: 100%;
-    max-width: 1320px;
+    max-width: 100%;
 
     @media (max-width: 991px) {
       gap: 60px;
@@ -109,6 +118,96 @@ $gray-7: #374151;
   }
 }
 
+// New drones list styles
+.drones-list {
+  width: 100%;
+}
+
+.drones-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    gap: 32px;
+  }
+}
+
+.drones-page-card {
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  
+  .drone-showcase {
+    margin-top: 0;
+    width: 100%;
+    
+    &__content {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    &__image {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    &__specs {
+      width: 424px;
+      flex-shrink: 0;
+      
+      @media (max-width: 991px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Drone category block styles
+.drone-category {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  
+  &__label {
+    background: $white;
+    color: $green-primary;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 135%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid $green-primary;
+
+    @media (max-width: 767px) {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+}
+
+// Drone tag styles removed - no longer needed since we removed the duplicate tag
+
+.no-drones-message {
+  text-align: center;
+  padding: 60px 20px;
+  
+  p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: $gray-4;
+    margin: 0;
+  }
+}
+
+// Keep existing styles for backward compatibility
 .drones-by-size, .drones-by-task {
   width: 100%;
 }
@@ -254,13 +353,22 @@ $gray-7: #374151;
   &__content {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
+    padding: 0px;
     gap: 24px;
-    width: 100%;
+    width: 1320px;
+    height: auto;
+    background: transparent;
+
+    @media (max-width: 1400px) {
+      width: 100%;
+      max-width: 1320px;
+    }
 
     @media (max-width: 991px) {
       flex-direction: column;
       gap: 32px;
+      height: auto;
     }
   }
 
@@ -271,10 +379,21 @@ $gray-7: #374151;
     justify-content: center;
     align-items: center;
     padding: 32px;
+    gap: 16px;
+    isolation: isolate;
+    width: 872px;
+    height: 500px;
     background: $white;
     border-radius: 24px;
-    flex: 1;
-    min-height: 500px;
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 1400px) {
+      width: 100%;
+      max-width: 872px;
+    }
 
     @media (max-width: 991px) {
       width: 100%;
@@ -287,30 +406,59 @@ $gray-7: #374151;
       height: auto;
       max-width: 808px;
       object-fit: contain;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+      z-index: 0;
+      border-radius: 8px;
+
+      @media (max-width: 1400px) {
+        width: 100%;
+        height: auto;
+        max-width: 808px;
+      }
     }
   }
 
   &__link-button {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    width: 88px;
-    height: 88px;
-    background: $green-primary;
-    border: 1.57px solid $green-primary;
-    border-radius: 50%;
+    box-sizing: border-box;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 18.8571px;
+    gap: 12.57px;
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    right: 24px;
+    top: 24px;
+    background: $green-primary;
+    border: 1.57143px solid $green-primary;
+    border-radius: 15714.3px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
     color: $white;
     text-decoration: none;
     transition: all 0.3s ease;
+
+    svg {
+      width: 50.29px;
+      height: 50.29px;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
 
     @media (max-width: 767px) {
       width: 64px;
       height: 64px;
       top: 16px;
       right: 16px;
+      padding: 12px;
 
       svg {
         width: 32px;
@@ -319,8 +467,14 @@ $gray-7: #374151;
     }
 
     &:hover {
-      background: darken($green-primary, 10%);
+      background: $green-darker;
       transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(70, 200, 0, 0.3);
+      color: $white !important;
+      
+      svg {
+        color: $white;
+      }
     }
   }
 
@@ -328,15 +482,89 @@ $gray-7: #374151;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    padding: 0px;
+    gap: 16px;
     width: 424px;
+    height: auto;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    @media (max-width: 991px) {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// Separated spec blocks - each in its own white block
+.spec-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 8px;
+  width: 424px;
+  height: 92px;
+  background: $white;
+  border-radius: 8px;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 991px) {
+    width: 100%;
+    height: auto;
+    min-height: 92px;
+  }
+
+  &__label {
+    width: 392px;
+    height: 24px;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FF6A00;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
 
     @media (max-width: 991px) {
       width: 100%;
     }
   }
+
+  &__value {
+    width: 392px;
+    height: 28px;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: $black;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
+  }
 }
 
+// Keep old spec-item styles for backward compatibility
 .spec-item {
   display: flex;
   flex-direction: column;

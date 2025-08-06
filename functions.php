@@ -1769,10 +1769,24 @@ function render_drone_showcase_html($drone) {
 
     $drone_id = $drone->ID;
     $drone_title = get_the_title($drone_id);
-    $drone_image = get_the_post_thumbnail($drone_id, 'full_hd');
+    $drone_image = get_the_post_thumbnail($drone_id, 'full');
     $drone_link = get_permalink($drone_id);
 
     $specifications = function_exists('get_field') ? get_field('catalog_specifications', $drone_id) : [];
+
+    // Get drone categories using standard WordPress categories
+    $drone_categories = array();
+    
+    // Get standard WordPress categories for this drone
+    $categories = get_the_category($drone_id);
+    
+    if (!empty($categories) && !is_wp_error($categories)) {
+        foreach ($categories as $category) {
+            if (!empty($category->name)) {
+                $drone_categories[] = $category->name;
+            }
+        }
+    }
 
     ?>
     <div class="drone-showcase__content">
@@ -1783,6 +1797,7 @@ function render_drone_showcase_html($drone) {
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/drone-placeholder.jpg'); ?>"
                      alt="<?php echo esc_attr($drone_title); ?>" class="img-fluid">
             <?php endif; ?>
+            
             <a href="<?php echo esc_url($drone_link); ?>" class="drone-showcase__link-button">
                 <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1794,17 +1809,26 @@ function render_drone_showcase_html($drone) {
             <?php if ($specifications && is_array($specifications)): ?>
                 <?php foreach ($specifications as $spec): ?>
                     <?php if (!empty($spec['label']) && !empty($spec['value'])): ?>
-                        <div class="spec-item">
-                            <div class="spec-item__label"><?php echo esc_html($spec['label']); ?></div>
-                            <div class="spec-item__value"><?php echo esc_html($spec['value']); ?></div>
+                        <div class="spec-block">
+                            <div class="spec-block__label"><?php echo esc_html($spec['label']); ?></div>
+                            <div class="spec-block__value"><?php echo esc_html($spec['value']); ?></div>
                         </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php else: ?>
-                <div class="spec-item">
-                    <div class="spec-item__label">Model</div>
-                    <div class="spec-item__value"><?php echo esc_html($drone_title); ?></div>
-                </div>
+                <?php if (!empty($drone_categories)): ?>
+                    <div class="spec-block">
+                        <div class="spec-block__label">Category</div>
+                        <div class="spec-block__value"><?php echo esc_html(implode(', ', $drone_categories)); ?></div>
+                    </div>
+                <?php else: ?>
+                    <?php if (!empty($drone_categories)): ?>
+                        <div class="spec-block">
+                            <div class="spec-block__label">Category</div>
+                            <div class="spec-block__value"><?php echo esc_html(implode(', ', $drone_categories)); ?></div>
+                        </div>
+                    <?php endif; ?>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
     </div>
